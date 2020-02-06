@@ -10,7 +10,7 @@
    crossorigin=""/>
    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css">
    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css">
-    <title>Study APIs</title>
+    <title>Open Street API</title>
 </head>
 <body>
     <div class="container">
@@ -32,7 +32,7 @@
                
                
                     <a class=" text-decoration-none" href="google-maps.html" title=" Go to google-maps.html"> 
-                    <li id="google-maps" class="list-group-item "> MAPS </li>
+                    <li id="google-maps" class="list-group-item ">GOOGLE  MAPS </li>
                     </a>
                
                 <a class=" text-decoration-none" href="open-maps.html" title=" Go to open-maps.html"> 
@@ -46,7 +46,7 @@
                 
                 </ul>
             </div>
-             <div  class="col-md-9">
+             <div id="api_open_maps" class="col-md-9">
              <h3 class="text-center bg-info text-light  pt-1 pb-1">Leaflet & OpenStreetMap API</h3>
             <!-- LEAFLET -->
              <div id="map" class= "border border-info" style="min-height: 360px;"></div>
@@ -55,52 +55,16 @@
     </div>
   
 
- <!-- leaflet maps -->
+ 
  <!-- Make sure you put this AFTER Leaflet's CSS -->
+
+ <!-- leaflet maps -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.6.0/leaflet.js" integrity="sha256-fNoRrwkP2GuYPbNSJmMJOCyfRB2DhPQe0rGTgzRsyso=" crossorigin="anonymous"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.6.0/leaflet-src.js" integrity="sha256-wc8X54qvAHZGQY6nFv24TKlc3wtO0bgAfqj8AutTIu0=" crossorigin="anonymous"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/leaflet.markercluster.js" integrity="sha256-WL6HHfYfbFEkZOFdsJQeY7lJG/E5airjvqbznghUzRw=" crossorigin="anonymous"></script>
    <script src="../js/open-maps/DB_data.js"></script>
-
- <script>
-
-
-  console.log(DB_data);
-
-var tiles = L.tileLayer('//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  maxZoom: 18,
-  attribution: '&copy; <a href="//openstreetmap.org/copyright">OpenStreetMap</a> contributors, Points &copy 2012 LINZ'
-});
-
-var map = L.map('map', {
-  center: L.latLng(-37.89, 175.46),
-  zoom: 13,
-  layers: [tiles]
-});
-
-var mcg = L.markerClusterGroup({
-  chunkedLoading: true,
-  //singleMarkerMode: true,
-  spiderfyOnMaxZoom: false
-});
-
-for (var i = 0; i < DB_data.length; i++) {
-  var a = DB_data[i];
-  var title = a[2];
-  var marker = L.marker(new L.LatLng(a[0], a[1]), { title: title });
-  marker.bindPopup("<img src='../img/avatar3.png' alt = 'img'  style='width:30px;height:30px;'><b>Hello Cor666k!</b><br>I am a popup. <a href='swapi.html' >click me</a>");
-  mcg.addLayer(marker);
-}
-
-map.addLayer(mcg);
-    
-    </script>
-
+   <script src="../js/open-maps/clusters.js"></script>
 <!--end leaflet maps -->
-
-
-
-
 
     <script
   src="https://code.jquery.com/jquery-3.4.1.js"

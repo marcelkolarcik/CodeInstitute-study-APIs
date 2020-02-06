@@ -10,7 +10,7 @@
    crossorigin=""/>
    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css">
    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css">
-    <title>Study APIs</title>
+    <title>Google maps API</title>
 </head>
 <body>
     <div class="container">
@@ -32,7 +32,7 @@
                
                
                     <a class=" text-decoration-none" href="google-maps.html" title=" Go to google-maps.html"> 
-                    <li id="google-maps" class="list-group-item active"> MAPS </li>
+                    <li id="google-maps" class="list-group-item active">GOOGLE  MAPS </li>
                     </a>
                
                 <a class=" text-decoration-none" href="open-maps.html" title=" Go to open-maps.html"> 
@@ -49,111 +49,22 @@
              <div id="api_google-maps img-thumbnail" class="col-md-9">
             <h3 class="text-center bg-info text-light  pt-1 pb-1">Google Maps API</h3>
             <!-- GOOGLE MAPS -->
-            <!-- <div id="map" style="min-height: 360px;"></div> -->
+            <div id="map" style="min-height: 360px;"></div>
            
-            <!-- LEAFLET -->
-             <div id="mapid"  style="min-height: 360px;"></div>
+           
+            
             </div>
         </div>
     </div>
    <!-- google maps -->
-    <!-- <script>
-        var API_key = 'AIzaSyA2dJPrIpTBWSwcyEMAt189prf6TW7cMws';
-
-        function initMap(){
-            var map = new google.maps.Map(document.getElementById("map"),{
-                zoom : 8,
-                center: {
-                   lat:  51.903614, lng:  -8.468399  // Cork
-                }
-            });
-
-            var labels = 'ABCDEFGHIJKLMOPQRSXYZW';
-            var locations = [
-                { lat:  51.903614, lng:  -8.468399}, // Cork
-                { lat: 53.350140, lng: -6.266155}, // Dublin
-                { lat:52.668018, lng: -8.630498}, // Limerick
-                 { lat: 53.270962, lng: -9.062691} //Galway
-            ];
-
-            var markers = locations.map(function(location,i){
-                return new google.maps.Marker({
-                    position:location,
-                    label:labels[i % labels.lenght]
-                });
-            });
-
-             // Add a marker clusterer to manage the markers.
-        var markerCluster = new MarkerClusterer(map, markers,
-            {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
-    
-        }
-
-    </script>
-     <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclustererplus@4.0.1.min.js">
-    </script>
-
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2dJPrIpTBWSwcyEMAt189prf6TW7cMws&callback=initMap">
-    </script> -->
+    <script src="../js/google-maps.js"> </script>
+    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclustererplus@4.0.1.min.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2dJPrIpTBWSwcyEMAt189prf6TW7cMws&callback=initMap"> </script>
+   
+   
  <!--end of google maps -->
 
- <!-- leaflet maps -->
- <!-- Make sure you put this AFTER Leaflet's CSS -->
- <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
-   integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
-   crossorigin=""></script>
-
- <script>
-
  
-
-    var mymap = L.map('mapid').setView([  53.270962 , -9.062691], 6);
-    
-    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFyY2VsLXN0dWRlbnQiLCJhIjoiY2s2YXBhNmtnMGE3aDNrbXZkNzE0MmV3cCJ9.zOhJz47eXASVRvyzvD74BQ', {
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    maxZoom: 18,
-    id: 'mapbox/streets-v11',
-    accessToken: 'your.mapbox.access.token'
-}).addTo(mymap);
-
-        var marker = L.marker([ 51.903614, -8.468399]).addTo(mymap);     
-
-         marker.bindPopup("<img src='../img/avatar3.png' alt = 'img'  style='width:30px;height:30px;'><b>Hello Cork!</b><br>I am a popup. <a href='swapi.html' >click me</a>").openPopup();
-        
-
-         var marker = L.marker([ 53.350140, -6.266155]).addTo(mymap);     
-
-         marker.bindPopup("<img src='../img/avatar3.png' alt = 'img'  style='width:30px;height:30px;'><b>Hello Dublin!</b><br>I am a popup. <a href='swapi.html' >click me</a>").openPopup();
-        
-         var marker = L.marker([ 53.350140, -6.276155]).addTo(mymap);     
-
-         marker.bindPopup("<img src='../img/avatar3.png' alt = 'img'  style='width:30px;height:30px;'><b>Hello Dublin2!</b><br>I am a popup. <a href='swapi.html' >click me</a>").openPopup();
-        
-     
-        // var circle = L.circle([51.508, -0.11], {
-        //     color: 'red',
-        //     fillColor: '#f03',
-        //     fillOpacity: 0.5,
-        //     radius: 500
-        // }).addTo(mymap);
-        // circle.bindPopup("I am a circle.");
-
-        // var polygon = L.polygon([
-        //     [51.509, -0.08],
-        //     [51.503, -0.06],
-        //     [51.51, -0.047]
-        // ]).addTo(mymap);
-        // polygon.bindPopup("I am a polygon.");
-    
-    </script>
-
-<!--end leaflet maps -->
-
-
-
-
-
     <script
   src="https://code.jquery.com/jquery-3.4.1.js"
   integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
